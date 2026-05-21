@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PediOncAlert — Sepsis Pocket Card</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #FFFFFF;
+    color: #2D2D2D;
+    line-height: 1.45;
+    font-size: 14px;
+    padding: 0 0 32px 0;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: #CC0000;
+    color: #fff;
+    padding: 20px 16px 16px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .header .subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+    font-weight: 400;
+  }
+  .badge {
+    display: inline-block;
+    background: #1B2A4A;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  /* ── Main content ── */
+  .content { padding: 12px 14px; }
+
+  /* ── Section cards ── */
+  .card {
+    background: #fff;
+    border-radius: 0;
+    padding: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(27,42,74,0.06);
+    border-left: 4px solid #1B2A4A;
+  }
+  .card.alert {
+    border-left-color: #CC0000;
+  }
+  .card.escalate {
+    border-left-color: #CC0000;
+    background: #FFF8F8;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #1B2A4A;
+    margin-bottom: 8px;
+  }
+  .card.alert .card-title { color: #CC0000; }
+  .card.escalate .card-title { color: #CC0000; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
+  ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #1B2A4A;
+    font-weight: 700;
+  }
+  .card.alert ul li::before { color: #CC0000; }
+  .card.escalate ul li::before { color: #CC0000; }
+
+  strong { font-weight: 600; }
+
+  /* ── Antibiotic table ── */
+  .abx-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-top: 6px;
+  }
+  .abx-table th {
+    background: #1B2A4A;
+    color: #fff;
+    text-align: left;
+    padding: 6px 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .abx-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #E8E8E8;
+    vertical-align: top;
+  }
+  .abx-table tr:last-child td { border-bottom: none; }
+  .abx-table .condition { font-weight: 600; color: #1B2A4A; }
+
+  /* ── Highlight box ── */
+  .highlight {
+    background: #FFF0F0;
+    border: 1.5px solid #CC0000;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+    color: #1B2A4A;
+    margin-bottom: 12px;
+  }
+  .highlight span { color: #CC0000; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    font-size: 10px;
+    color: #999;
+    padding: 8px 14px 0;
+  }
+  .footer a { color: #CC0000; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="badge">PediOncAlert</div>
+  <h1>Sepsis Pocket Card</h1>
+  <div class="subtitle">Night Curriculum — First 60 Minutes</div>
+</div>
+
+<div class="content">
+
+  <!-- ── KEY RULE ── -->
+  <div class="highlight">
+    Antibiotics in <span>&le; 60 min</span> &nbsp;|&nbsp; Fluids in <span>&le; 30 min</span> of order
+  </div>
+
+  <!-- ── RECOGNIZE ── -->
+  <div class="card alert">
+    <div class="card-title">Recognize Early Shock</div>
+    <ul>
+      <li><strong>Tachycardia</strong> — earliest compensatory sign</li>
+      <li><strong>Delayed cap refill</strong> (&gt;2 sec), cool/mottled extremities</li>
+      <li><strong>Altered mental status</strong> — lethargy, weak cry, irritability</li>
+      <li><strong>Hypotension is a LATE sign</strong> — do not wait for it</li>
+      <li>SpO&#8322; may be normal despite poor perfusion</li>
+    </ul>
+  </div>
+
+  <!-- ── INITIAL MANAGEMENT ── -->
+  <div class="card">
+    <div class="card-title">Initial Management</div>
+    <ul>
+      <li>Assess perfusion, apply O&#8322; via NC/face mask</li>
+      <li><strong>20 mL/kg LR/NS bolus</strong> via rapid infuser (10 mL/kg if cardiac hx)</li>
+      <li>Draw labs: <strong>VBG, lactate, CBC, CMP, CRP, blood cultures</strong> (central + peripheral)</li>
+      <li>Administer broad-spectrum antibiotics within 30 min of order</li>
+      <li>Administer Tylenol for fever</li>
+      <li><strong>Reassess perfusion &amp; BP after each bolus</strong></li>
+      <li>Notify fellow/attending</li>
+    </ul>
+  </div>
+
+  <!-- ── ANTIBIOTICS ── -->
+  <div class="card">
+    <div class="card-title">Antibiotic Quick Reference</div>
+    <table class="abx-table">
+      <tr>
+        <th>Scenario</th>
+        <th>Antibiotic</th>
+      </tr>
+      <tr>
+        <td class="condition">Neutropenic or unstable</td>
+        <td><strong>Cefepime</strong></td>
+      </tr>
+      <tr>
+        <td class="condition">Not neutropenic + stable</td>
+        <td><strong>Ceftriaxone</strong></td>
+      </tr>
+    </table>
+
+    <div style="margin-top:10px; font-size:12.5px;">
+      <strong style="color:#CC0000;">Add Vancomycin if:</strong>
+      Hypotension, line/catheter infection, cellulitis, pneumonia, severe mucositis, chills/rigors with catheter flush, suspected meningitis
+    </div>
+
+    <div style="margin-top:8px; font-size:12.5px;">
+      <strong style="color:#8B0000;">Escalate to Meropenem if:</strong>
+      Septic shock needing ICU, rapid deterioration despite fluids + cefepime
+    </div>
+
+    <div style="margin-top:8px; font-size:12.5px;">
+      <strong style="color:#1B2A4A;">Consider Amikacin if:</strong>
+      Chills/rigors during catheter flush, evidence of sepsis, known MDR organism colonization
+    </div>
+  </div>
+
+  <!-- ── ESCALATION ── -->
+  <div class="card escalate">
+    <div class="card-title">Escalation Triggers</div>
+    <ul>
+      <li>No improvement after <strong>40–60 mL/kg</strong> fluids</li>
+      <li>Persistent hypotension or worsening perfusion</li>
+      <li>Altered mental status</li>
+      <li>Increasing O&#8322; requirement</li>
+      <li><strong>Stop fluids if:</strong> worsening tachycardia, gallop, rales, hypoxia (fluid overload)</li>
+    </ul>
+    <div style="margin-top:8px; font-size:12.5px;">
+      <strong>Stress-dose hydrocortisone:</strong> 2 mg/kg IV (max 100 mg) — especially if on chronic steroids or adrenal suppression
+    </div>
+  </div>
+
+  <!-- ── HIGH-RISK PATIENTS ── -->
+  <div class="card">
+    <div class="card-title">High-Risk Patients</div>
+    <ul>
+      <li>Leukemia on induction</li>
+      <li>AML patients</li>
+      <li>Solid tumors 7–10 days post-chemo (expected nadir)</li>
+      <li>Relapsed/refractory cases</li>
+      <li>Post-transplant or chronic immunosuppression</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  PediOncAlert Night Curriculum &bull; St. Jude Children's Research Hospital<br>
+  For questions: <a href="mailto:Alejandra.gabela@stjude.org">Alejandra.gabela@stjude.org</a>
+</div>
+
+</body>
+</html>
